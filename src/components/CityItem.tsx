@@ -1,9 +1,9 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { City } from "../types";
 
-export default function CityItem({ city, onPress }: { city: City, onPress: () => void }) {
+export default function CityItem({ city, onPress, index }: { city: City, onPress: () => void, index: number }) {
     return (
-        <Pressable style={styles.container} onPress={onPress}>
+        <Pressable testID={`city-item-${index}`} style={styles.container} onPress={onPress}>
             <Text style={styles.title}>{city.display}</Text>
             <Text style={styles.subtitle}>{city.city_name}</Text>
         </Pressable>

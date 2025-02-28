@@ -41,7 +41,7 @@ export default function Home({ navigation }: any) {
                     ) : (
                     <FlatList
                         data={data}
-                        renderItem={({ item }) => <CityItem city={item} onPress={() => handleNavigate(item)} />}
+                        renderItem={({ item, index }) => <CityItem index={index} city={item} onPress={() => handleNavigate(item)} />}
                         keyExtractor={(item, index) => `${item.id}-${index}`}
                         contentContainerStyle={{ rowGap: 4 }}
                     />

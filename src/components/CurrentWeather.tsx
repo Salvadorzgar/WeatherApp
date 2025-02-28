@@ -11,23 +11,24 @@ export default function CurrentWeather({ lat, lon, city }: IProps) {
     const [data, loading] = useWeather({lat, lon});
 
     return (
-        <View style={styles.container}>
+        <View testID="today-weather-container" style={styles.container}>
             {
                 loading
                 ? <ActivityIndicator size="large" color="black" />
                 : (
                     <>
-                        <Text style={styles.title}>{city}</Text>
+                        <Text testID="city-name" style={styles.title}>{city}</Text>
                         <Text style={styles.day}>Hoy</Text>
                         <Image
+                            testID="today-weather-icon"
                             src={`https://openweathermap.org/img/wn/${data?.weather[0].icon}@2x.png`}
                             width={100}
                             height={100}
                         />
                         <View style={styles.tempcontainer}>
-                            <Text style={styles.mintemp}>{`${data?.main.temp_min.toFixed(0)} °C`}</Text>
-                            <Text style={styles.subtitle}>{`${data?.main.temp.toFixed(0)} °C`}</Text>
-                            <Text style={styles.maxtemp}>{`${data?.main.temp_max.toFixed(0)} °C`}</Text>
+                            <Text testID="min-temp" style={styles.mintemp}>{`${data?.main.temp_min.toFixed(0)} °C`}</Text>
+                            <Text testID="temp" style={styles.subtitle}>{`${data?.main.temp.toFixed(0)} °C`}</Text>
+                            <Text testID="max-temp" style={styles.maxtemp}>{`${data?.main.temp_max.toFixed(0)} °C`}</Text>
                         </View>
                     </>
                 )

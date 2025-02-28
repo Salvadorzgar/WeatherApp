@@ -4,9 +4,14 @@ import ForeCastRowItem from "./ForeCastRowItem"
 
 const DAYS = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
 
-export default function ForeCastRow({ item }: { item: [string, ForecastList] }) {
+type IProps = {
+    item: [string, ForecastList];
+    index: number;
+}
+
+export default function ForeCastRow({ item, index }: IProps) {
     return (
-        <View style={styles.container}>
+        <View testID={`forecast-row-${index}`} style={styles.container}>
             <Text>{DAYS[new Date(item[0]).getDay()]}</Text>
             <FlatList
                 horizontal

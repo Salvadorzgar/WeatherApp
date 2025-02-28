@@ -16,10 +16,10 @@ export default function ForeCastList({ lat, lon }: IProps) {
     }
 
     return (
-        <View style={styles.container}>
+        <View testID="forecast-list" style={styles.container}>
             <FlatList
                 data={Object.entries(format(data))}
-                renderItem={({ item }) => <ForeCastRow item={item} /> }
+                renderItem={({ item, index }) => <ForeCastRow item={item} index={index} /> }
                 contentContainerStyle={{ rowGap: 4 }}
             />
         </View>

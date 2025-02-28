@@ -16,7 +16,7 @@ export default function CitiesSearchBar({ placeholder, onChangeText, onPress }: 
                 onChangeText={onChangeText}
                 placeholderTextColor="#CDCDCD"
             />
-            <Pressable style={styles.button} onPress={onPress}>
+            <Pressable testID="search-button" style={styles.button} onPress={onPress}>
                 <SearchIcon color="white" />
             </Pressable>
         </View>
